@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const todosSlice = createSlice({
   name: "todos",
   initialState: {
-    value: ["Koşu yap","Şakşuka oyna"],
+    value: [],
   },
   reducers: {
     addTodo: (state, action) => {
-      state.value = [...state.value + action.payload];
+      state.value = [...state.value, action.payload];
     },
 
     deleteTodo: (state, action) => {
@@ -19,6 +19,7 @@ const todosSlice = createSlice({
     },
   },
 });
+
 
 
 export const { addTodo, deleteTodo } = todosSlice.actions;
