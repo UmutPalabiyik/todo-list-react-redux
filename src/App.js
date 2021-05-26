@@ -7,7 +7,6 @@ import { addTodo } from "./features/todos/todosSlice";
 const App = () => {
   const [inputs, setInputs] = useState({ name: "", description: "" });
   const dispatch = useDispatch();
-  
 
   return (
     <div className="app">
@@ -44,7 +43,7 @@ const App = () => {
           onClick={() => {
             if (inputs.name && inputs.description) {
               dispatch(addTodo(inputs));
-              setInputs({ name: "", description: "" });
+              setInputs({ name: "", description: "", id: Math.random() * 10 });
             }
           }}
         >

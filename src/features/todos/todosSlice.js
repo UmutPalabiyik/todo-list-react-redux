@@ -11,17 +11,14 @@ const todosSlice = createSlice({
     },
 
     deleteTodo: (state, action) => {
-      state.value = [
-        state.value.filter((todo) => {
-          return todo !== action.payload;
-        }),
-      ];
+      const newValue = state.value.filter((todo) => {
+        return todo.id !== action.payload;
+      });
+      state.value = [...newValue];
     },
   },
 });
 
-
-
 export const { addTodo, deleteTodo } = todosSlice.actions;
-export const selectTodos = state => state.todos.value;
+export const selectTodos = (state) => state.todos.value;
 export default todosSlice.reducer;
