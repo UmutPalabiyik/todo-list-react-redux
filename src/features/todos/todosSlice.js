@@ -14,7 +14,7 @@ const todosSlice = createSlice({
       const newValue = state.value.filter((todo) => {
         return todo.id !== action.payload;
       });
-      state.value = [...newValue];
+      state.value = newValue
     },
   },
 });

@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { deleteTodo } from "../features/todos/todosSlice";
 
 const TodoItem = ( { todo }) => {
+
   const dispatch = useDispatch();
   const [complete, setComplete] = useState(false);
-
   const { name, description, id } = todo;
   
   return (

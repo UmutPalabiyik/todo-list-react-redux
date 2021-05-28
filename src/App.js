@@ -1,11 +1,13 @@
 import "./App.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit"
 import Todos from "./features/todos/Todos";
 import { addTodo } from "./features/todos/todosSlice";
 
 const App = () => {
-  const [inputs, setInputs] = useState({ name: "", description: "" });
+
+  const [inputs, setInputs] = useState({ name: "", description: "", id: nanoid()  });
   const dispatch = useDispatch();
 
   return (
@@ -43,7 +45,7 @@ const App = () => {
           onClick={() => {
             if (inputs.name && inputs.description) {
               dispatch(addTodo(inputs));
-              setInputs({ name: "", description: "", id: Math.random() * 10 });
+              setInputs({ name: "", description: "", id: nanoid() });
             }
           }}
         >
